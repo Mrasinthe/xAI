@@ -267,8 +267,8 @@ class ClassLabel(BaseModel):
 @app.post("/explain_occlusion/image")
 async def explain_api(file: UploadFile = File(...), base:ClassLabel = Depends(),mlModel:UploadFile = File(...), ImageFileBytes: bytes = File(...)):
      extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
-     input = base.model_dump()
-     # input = base.dict()
+     # input = base.model_dump()
+     input = base.dict()
      var = input['imagetype']
      classNum = get_ClassName(var)
      ####################### FIND CLASS ########################
